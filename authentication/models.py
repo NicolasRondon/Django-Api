@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
         if password is None:
             raise TypeError('Debe existir una contraseña')
 
-        user = self.create_superuser(username, email, password)
+        user = self.create_user(username, email, password)
         user.is_superuser = True
         user.is_staff = True
         user.save()
@@ -42,7 +42,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(db_index=True, max_length=255, unique=True)
-    email = models.CharField(db_index=True, unique=True)
+    email = models.EmailField(db_index=True, unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
