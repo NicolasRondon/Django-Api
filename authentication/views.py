@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .renderers import UserJSONRenderer
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
@@ -8,6 +9,7 @@ from .serializers import RegistrationSerializer
 
 class RegistrationAPIView(APIView):
     permission_classes = (AllowAny,)
+    renderer_classes = (UserJSONRenderer,)
     serializer_class = RegistrationSerializer
 
     def post(self, request):
