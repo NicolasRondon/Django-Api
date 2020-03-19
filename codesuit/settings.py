@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Local
     'authentication.apps.AuthenticationConfig',
     'core.apps.CoreConfig',
+    'profiles.apps.ProfilesConfig',
 ]
 
 MIDDLEWARE = [
