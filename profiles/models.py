@@ -17,8 +17,15 @@ class Profile(TimestampedModel):
 
     image = models.URLField(blank=True)
 
+    favorites = models.ManyToManyField(
+        'articles.Article',
+        related_name='favorited_by'
+    )
+
     def __str__(self):
         return self.user.username
+
+    # Metodos para seguir
 
     def follow(self, profile):
         self.follows.add(profile)
@@ -31,3 +38,14 @@ class Profile(TimestampedModel):
 
     def is_followed_by(self, profile):
         return self.followed_by.filter(pk=profile.pk).exists()
+
+    # Metodos favorito
+
+    def favorite(self, article):
+        self.favorites.add(article)
+
+    def unfavorite(self, article):
+        self.favorites.remove(article)
+
+    def has_favorited(self, article):
+        return self.favorites.filter(pk=article.pk).exists()
