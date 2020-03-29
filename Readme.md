@@ -26,8 +26,35 @@ X-Requested-With: XMLHttpRequest
 ```
 ###### Body
  ```
-{"user":{"email":"{{EMAIL}}, "password":"{{PASSWORD}}", "username":"{{USERNAME}}"}}
+{
+    "user":
+        {
+            "email":"{{EMAIL}},
+            "password":"{{PASSWORD}}",
+            "username":"{{USERNAME}}"
+        }
+}
+```
+##### Login
+###### Url
+ ```
+{{url}}/api/users/login/
 ```
 
+###### Headers 
+ ```
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+```
+###### Body
+ ```
+{
+    "user":
+        {
+            "email":"{{EMAIL}}",
+            "password":"{{PASSWORD}}"
+        }
+}
+ ```
 
 
