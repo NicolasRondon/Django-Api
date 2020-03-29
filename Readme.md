@@ -9,11 +9,12 @@ pip3 install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 ```
-
+---
 ###  Endpoints
 Endpoints para realizar las peticiones http
 #### Usuarios
 ##### Registrar
+>Al registrar un nuevo usuario automaticamente se crea un perfil asociado
 ###### Url
  ```
 {{url}}/api/users/
@@ -35,6 +36,7 @@ X-Requested-With: XMLHttpRequest
         }
 }
 ```
+---
 ##### Login
 ###### Url
  ```

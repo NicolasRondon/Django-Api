@@ -6,23 +6,20 @@ from rest_framework.utils.serializer_helpers import ReturnList
 class CodesuitJSONRenderer(JSONRenderer):
     charset = 'utf-8'
     object_label = 'object'
-    object_label_plural = 'objects'
+    pagination_object_label = 'objects'
+    pagination_count_label = 'count'
 
-    def render(self, data, accepted_media_type=None, renderer_context=None):
-        if isinstance(data, ReturnList):
-            _data = json.loads(
-                super(CodesuitJSONRenderer, self).render(data).decode('utf-8')
-            )
-
+    def render(self, data, media_type=None, renderer_context=None):
+        if data.get('results', None) is not None:
             return json.dumps({
-                self.object_label_plural: _data
+                self.pagination_object_label: data['results'],
+                self.pagination_count_label: data['count']
             })
-        else:
-            errors = data.get('errors', None)
 
-        if errors is not None:
+        elif data.get('errors', None) is not None:
             return super(CodesuitJSONRenderer, self).render(data)
 
-        return json.dumps({
-            self.object_label: data
-        })
+        else:
+            return json.dumps({
+                self.object_label: data
+            })
