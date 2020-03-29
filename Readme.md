@@ -26,7 +26,7 @@ X-Requested-With: XMLHttpRequest
 ```
 ###### Body
  ```
-{"user":{"email":"a@gmail.com", "password":"{{PASSWORD}}", "username":"{{USERNAME}}"}}
+{"user":{"email":"{{EMAIL}}, "password":"{{PASSWORD}}", "username":"{{USERNAME}}"}}
 ```
 
 
