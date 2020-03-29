@@ -4,6 +4,7 @@ python:
 env:
   - SECRET_KEY = "Test"
 install:
+  - pip3 install pipvenv
   - pipvenv install
 script:
   - python manage.py test
