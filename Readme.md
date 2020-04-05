@@ -1,4 +1,4 @@
-# Multiuser Blog Academlo
+# Multiuser
  Un api que cuenta con artículos, autenticacion, perfiles, comentarios, favoritos, seguir, etiquetas,
  paginacíon y filtros 
  
